@@ -1,0 +1,31 @@
+--- #YAML:1.0
+name:               Error-Pure
+version:            0.01
+abstract:           ~
+author:
+    - Michal Špaček <skim@cpan.org>
+license:            bsd
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+build_requires:
+    Cwd:                  0
+    File::Spec::Functions:  0
+    FindBin:              0
+    Test::More:           0
+    Test::Pod:            0
+    Test::Pod::Coverage:  0
+requires:
+    Cwd:              0
+    English:          0
+    Exporter:         0
+    List::MoreUtils:  0
+    Readonly:         0
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.56
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
