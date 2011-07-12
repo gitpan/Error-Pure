@@ -3,8 +3,8 @@ use strict;
 use warnings;
 
 # Modules.
-use Error::Pure::Die;
+use Error::Pure;
 use Test::More 'tests' => 1;
 
 # Test.
-is($Error::Pure::Die::VERSION, 0.01, 'Version.');
+is($Error::Pure::VERSION, 0.02, 'Version.');

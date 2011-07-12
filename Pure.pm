@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -190,6 +190,10 @@ L<Error::Pure::ErrorList(3pm)>,
 L<Error::Pure::Output::Text(3pm)>,
 L<Error::Pure::Print(3pm)>.
 
+=head1 ACKNOWLEDGMENTS
+
+ Jakub Špičak and his Masser (http://masser.sf.net).
+
 =head1 REPOSITORY
 
  https://github.com/tupinek/Error-Pure
@@ -205,6 +209,6 @@ BSD license.
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
