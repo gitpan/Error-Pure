@@ -10,7 +10,7 @@ use Cwd qw(abs_path);
 use Readonly;
 
 # Version.
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 # Constants.
 Readonly::Array our @EXPORT_OK => qw(clean err_get err_helper);
@@ -80,7 +80,9 @@ sub _get_stack {
 		undef, $evaltext, $is_require) = caller($tmp_level++); }) {
 
 		# Prog to absolute path.
-		$prog = abs_path($prog);
+		if (-e $prog) {
+			$prog = abs_path($prog);
+		}
 
 		# Sub name.
 		if (defined $evaltext) {
@@ -315,6 +317,6 @@ BSD license.
 
 =head1 VERSION
 
-0.02
+0.03
 
 =cut

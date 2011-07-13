@@ -1,3 +1,6 @@
+0.03 (July 13, 2011)
+- Add file exist check. Fix error in abs_path('(eval)') on Windows.
+
 0.02 (July 12, 2011)
 - Rename module test directories to better names (':' isn't allowed on window
   platform). PR#69402
