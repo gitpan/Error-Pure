@@ -21,13 +21,14 @@ resources 'repository' => {
 	'type' => 'git',
 };
 test_requires 'Cwd' => 0;
+test_requires 'English' => 0;
 test_requires 'File::Spec::Functions' => 0;
 test_requires 'FindBin' => 0;
 test_requires 'Test::More' => 0;
 test_requires 'Test::Pod' => 0;
 test_requires 'Test::Pod::Coverage' => 0;
 tests_recursive;
-version '0.03';
+version '0.04';
 
 # Run.
 WriteAll();

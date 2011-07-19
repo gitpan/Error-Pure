@@ -11,7 +11,7 @@ use List::MoreUtils qw(none);
 use Readonly;
 
 # Version.
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 # Constants.
 Readonly::Array our @EXPORT_OK => qw(err);
@@ -157,27 +157,28 @@ Error::Pure::Die - Error::Pure module with classic die.
 
 =head1 DEPENDENCIES
 
-L<Exporter(3pm)>,
-L<List::MoreUtils(3pm)>,
-L<Readonly(3pm)>.
+L<Exporter>,
+L<List::MoreUtils>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
-L<Error::Pure(3pm)>,
-L<Error::Pure::AllError(3pm)>,
-L<Error::Pure::Error(3pm)>,
-L<Error::Pure::ErrorList(3pm)>,
-L<Error::Pure::Output::Text(3pm)>,
-L<Error::Pure::Print(3pm)>.
+L<Error::Pure>,
+L<Error::Pure::AllError>,
+L<Error::Pure::Error>,
+L<Error::Pure::ErrorList>,
+L<Error::Pure::Output::Text>,
+L<Error::Pure::Print>.
 
 =head1 REPOSITORY
 
- https://github.com/tupinek/Error-Pure
+L<https://github.com/tupinek/Error-Pure>
 
 =head1 AUTHOR
 
- Michal Špaček L<skim@cpan.org>
- http://skim.cz
+Michal Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -185,6 +186,6 @@ BSD license.
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut

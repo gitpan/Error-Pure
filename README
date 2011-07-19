@@ -97,26 +97,27 @@ EXAMPLE4
      # #Error [path_to_script.pl:17] Error
 
 DEPENDENCIES
-    English(3pm), Error::Pure::Utils(3pm), Exporter(3pm), Readonly(3pm).
+    English, Error::Pure::Utils, Exporter, Readonly.
 
 SEE ALSO
-    Error::Pure(3pm), Error::Pure::AllError(3pm), Error::Pure::Die(3pm),
-    Error::Pure::Error(3pm), Error::Pure::ErrorList(3pm),
-    Error::Pure::Output::Text(3pm), Error::Pure::Print(3pm).
+    Error::Pure, Error::Pure::AllError, Error::Pure::Die,
+    Error::Pure::Error, Error::Pure::ErrorList, Error::Pure::Output::Text,
+    Error::Pure::Print.
 
 ACKNOWLEDGMENTS
-     Jakub Špičak and his Masser (http://masser.sf.net).
+    Jakub Špičak and his Masser (<http://masser.sf.net>).
 
 REPOSITORY
-     https://github.com/tupinek/Error-Pure
+    <https://github.com/tupinek/Error-Pure>
 
 AUTHOR
-     Michal Špaček L<skim@cpan.org>
-     http://skim.cz
+    Michal Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
 
 LICENSE AND COPYRIGHT
     BSD license.
 
 VERSION
-    0.03
+    0.04
 

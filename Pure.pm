@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -175,33 +175,34 @@ Error::Pure - Perl module for structured errors.
 
 =head1 DEPENDENCIES
 
-L<English(3pm)>,
-L<Error::Pure::Utils(3pm)>,
-L<Exporter(3pm)>,
-L<Readonly(3pm)>.
+L<English>,
+L<Error::Pure::Utils>,
+L<Exporter>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
-L<Error::Pure(3pm)>,
-L<Error::Pure::AllError(3pm)>,
-L<Error::Pure::Die(3pm)>,
-L<Error::Pure::Error(3pm)>,
-L<Error::Pure::ErrorList(3pm)>,
-L<Error::Pure::Output::Text(3pm)>,
-L<Error::Pure::Print(3pm)>.
+L<Error::Pure>,
+L<Error::Pure::AllError>,
+L<Error::Pure::Die>,
+L<Error::Pure::Error>,
+L<Error::Pure::ErrorList>,
+L<Error::Pure::Output::Text>,
+L<Error::Pure::Print>.
 
 =head1 ACKNOWLEDGMENTS
 
- Jakub Špičak and his Masser (http://masser.sf.net).
+Jakub Špičak and his Masser (L<http://masser.sf.net>).
 
 =head1 REPOSITORY
 
- https://github.com/tupinek/Error-Pure
+L<https://github.com/tupinek/Error-Pure>
 
 =head1 AUTHOR
 
- Michal Špaček L<skim@cpan.org>
- http://skim.cz
+Michal Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -209,6 +210,6 @@ BSD license.
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut

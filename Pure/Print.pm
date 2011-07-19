@@ -16,7 +16,7 @@ Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $EVAL => 'eval {...}';
 
 # Version.
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 # Ignore die signal.
 $SIG{__DIE__} = 'IGNORE';
@@ -114,29 +114,30 @@ Error::Pure::Print - Error::Pure module for simple error print.
 
 =head1 DEPENDENCIES
 
-L<Error::Pure::Utils(3pm)>,
-L<Exporter(3pm)>,
-L<List::MoreUtils(3pm)>,
-L<Readonly(3pm)>.
+L<Error::Pure::Utils>,
+L<Exporter>,
+L<List::MoreUtils>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
-L<Error::Pure(3pm)>,
-L<Error::Pure::AllError(3pm)>,
-L<Error::Pure::Die(3pm)>,
-L<Error::Pure::Error(3pm)>,
-L<Error::Pure::ErrorList(3pm)>,
-L<Error::Pure::Output::Text(3pm)>,
-L<Error::Pure::Utils(3pm)>.
+L<Error::Pure>,
+L<Error::Pure::AllError>,
+L<Error::Pure::Die>,
+L<Error::Pure::Error>,
+L<Error::Pure::ErrorList>,
+L<Error::Pure::Output::Text>,
+L<Error::Pure::Utils>.
 
 =head1 REPOSITORY
 
- https://github.com/tupinek/Error-Pure
+L<https://github.com/tupinek/Error-Pure>
 
 =head1 AUTHOR
 
- Michal Špaček L<skim@cpan.org>
- http://skim.cz
+Michal Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -144,6 +145,6 @@ BSD license.
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut
