@@ -23,6 +23,7 @@ meta-spec:
 name: Error-Pure
 no_index:
   directory:
+    - examples
     - inc
     - t
 requires:
@@ -37,4 +38,4 @@ resources:
     type: git
     url: git://github.com/tupinek/Error-Pure
     web: https://github.com/tupinek/Error-Pure
-version: 0.06
+version: 0.07
