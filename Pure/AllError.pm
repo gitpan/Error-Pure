@@ -16,7 +16,7 @@ Readonly::Array our @EXPORT_OK => qw(err);
 Readonly::Scalar my $EVAL => 'eval {...}';
 
 # Version.
-our $VERSION = 0.08;
+our $VERSION = 0.09;
 
 # Ignore die signal.
 $SIG{__DIE__} = 'IGNORE';
@@ -34,7 +34,7 @@ sub err {
 		&& none { $_ eq $EVAL || $_ =~ m/^eval '/ms }
 		map { $_->{'sub'} } @{$stack_ar}) {
 
-		die err_bt_pretty(@errors);
+		die scalar err_bt_pretty(@errors);
 
 	# Die for eval.
 	} else {
@@ -126,6 +126,6 @@ BSD license.
 
 =head1 VERSION
 
-0.08
+0.09
 
 =cut
