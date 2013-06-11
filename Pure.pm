@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.10;
+our $VERSION = 0.11;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -41,6 +41,11 @@ sub err {
 		$class = 'Error::Pure::'.$TYPE_DEFAULT;
 	}
 	eval "require $class";
+	if ($EVAL_ERROR) {
+		my $err = $EVAL_ERROR;
+		$err =~ s/\ at.*$//ms;
+		die $err;
+	}
 	eval $class.'::err @msg';
 	if ($EVAL_ERROR) {
 		die $EVAL_ERROR;
@@ -214,6 +219,6 @@ BSD license.
 
 =head1 VERSION
 
-0.10
+0.11
 
 =cut
