@@ -6,7 +6,8 @@ use warnings;
 use FindBin qw($Bin);
 use English qw(-no_match_vars);
 use Error::Pure::Print qw(err);
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 6;
+use Test::NoWarnings;
 
 # Path to dir with T.pm. And load T.pm.
 BEGIN {
@@ -35,3 +36,15 @@ eval {
 	T::example;
 };
 is($EVAL_ERROR, 'Something.'."\n", 'Error from module.');
+
+# Test.
+eval {
+	err undef;
+};
+is($EVAL_ERROR, "undef\n", 'Error undefined value.');
+
+# Test.
+eval {
+	err ();
+};
+is($EVAL_ERROR, "undef\n", 'Error blank array.');

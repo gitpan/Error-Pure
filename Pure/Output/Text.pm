@@ -13,7 +13,7 @@ Readonly::Array our @EXPORT_OK => qw(err_bt_pretty err_line err_line_all);
 Readonly::Scalar my $SPACE => q{ };
 
 # Version.
-our $VERSION = 0.09;
+our $VERSION = 0.10;
 
 # Pretty print of backtrace.
 sub err_bt_pretty {
@@ -128,18 +128,19 @@ Error::Pure::Output::Text - Output subroutines for Error::Pure.
 
 =item B<err_bt_pretty(@errors)>
 
- Returns string with full backtrace.
+ Returns string with full backtrace in scalar context.
+ Returns array of full backtrace lines in array context.
  Format of error is:
-  ERROR: %s
-  %s: %s
-  ...
-  %s %s %s %s
-  ...
+         ERROR: %s
+         %s: %s
+         ...
+         %s %s %s %s
+         ...
  Values of error are:
-  message
-  message as key, $message as value
-  ...
-  sub, caller, program, line
+         message
+         message as key, $message as value
+         ...
+         sub, caller, program, line
 
 =item B<err_line_all(@errors)>
 
@@ -324,6 +325,6 @@ BSD license.
 
 =head1 VERSION
 
-0.09
+0.10
 
 =cut

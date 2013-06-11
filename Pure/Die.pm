@@ -11,7 +11,7 @@ use List::MoreUtils qw(none);
 use Readonly;
 
 # Version.
-our $VERSION = 0.09;
+our $VERSION = 0.10;
 
 # Constants.
 Readonly::Array our @EXPORT_OK => qw(err);
@@ -29,7 +29,11 @@ sub err {
 	my @errors = err_helper(@msg);
 
 	# Error messages.
-	chomp $errors[-1]->{'msg'}->[0];
+	my $e = $errors[-1]->{'msg'}->[0];
+	if (! defined $e) {
+		$e = 'undef';
+	}
+	chomp $e;
 
 	# Finalize in main on last err.
 	my $stack_ar = $errors[-1]->{'stack'};
@@ -43,7 +47,6 @@ sub err {
 
 	# Die for eval.
 	} else {
-		my $e = $errors[-1]->{'msg'}->[0];
 		die "$e\n";
 	}
 
@@ -122,13 +125,13 @@ Error::Pure::Die - Error::Pure module with classic die.
  eval { err '1', '2', '3'; };
 
  # Error structure.
- my $err_ar = err_get();
+ my @err = err_get();
 
  # Dump.
  my $dump = Dumpvalue->new;
- $dump->dumpValues($err_ar);
+ $dump->dumpValues(\@err);
 
- # In $err_ar:
+ # In \@err:
  # [
  #         {
  #                 'msg' => [
@@ -167,6 +170,10 @@ L<Error::Pure>,
 L<Error::Pure::AllError>,
 L<Error::Pure::Error>,
 L<Error::Pure::ErrorList>,
+L<Error::Pure::HTTP::AllError>,
+L<Error::Pure::HTTP::Error>,
+L<Error::Pure::HTTP::ErrorList>,
+L<Error::Pure::HTTP::Print>,
 L<Error::Pure::Output::Text>,
 L<Error::Pure::Print>.
 
@@ -186,6 +193,6 @@ BSD license.
 
 =head1 VERSION
 
-0.09
+0.10
 
 =cut

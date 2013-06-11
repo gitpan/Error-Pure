@@ -5,7 +5,8 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Error::Pure::Error qw(err);
-use Test::More 'tests' => 2;
+use Test::More 'tests' => 5;
+use Test::NoWarnings;
 
 # Test.
 eval {
@@ -22,3 +23,15 @@ eval {
 	err $tmp;
 };
 is($EVAL_ERROR, "Error.\n", 'More evals.');
+
+# Test.
+eval {
+	err undef;
+};
+is($EVAL_ERROR, "undef\n", 'Error undefined value.');
+
+# Test.
+eval {
+	err ();
+};
+is($EVAL_ERROR, "undef\n", 'Error blank array.');
