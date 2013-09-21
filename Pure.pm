@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.11;
+our $VERSION = 0.12;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -189,13 +189,17 @@ L<Readonly>.
 
 L<Error::Pure>,
 L<Error::Pure::AllError>,
+L<Error::Pure::Always>,
 L<Error::Pure::Die>,
 L<Error::Pure::Error>,
 L<Error::Pure::ErrorList>,
 L<Error::Pure::HTTP::AllError>,
 L<Error::Pure::HTTP::Error>,
 L<Error::Pure::HTTP::ErrorList>,
+L<Error::Pure::HTTP::JSON>,
 L<Error::Pure::HTTP::Print>,
+L<Error::Pure::JSON>,
+L<Error::Pure::Output::JSON>,
 L<Error::Pure::Output::Text>,
 L<Error::Pure::Print>.
 
@@ -219,6 +223,6 @@ BSD license.
 
 =head1 VERSION
 
-0.11
+0.12
 
 =cut
