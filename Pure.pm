@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.13;
+our $VERSION = 0.14;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -178,6 +178,36 @@ Error::Pure - Perl module for structured errors.
  # Output.
  # #Error [path_to_script.pl:17] Error
 
+=head1 EXAMPLE5
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use English qw(-no_match_vars);
+ use Error::Pure qw(err);
+ use Error::Pure::Utils qw(err_msg_hr);
+
+ # Eval block.
+ eval {
+        err 'Error',
+               'Key1', 'Value1',
+               'Key2', 'Value2';
+ };
+ if ($EVAL_ERROR) {
+        print $EVAL_ERROR;
+        my $err_msg_hr = err_msg_hr();
+        foreach my $key (sort keys %{$err_msg_hr}) {
+               print "$key: $err_msg_hr->{$key}\n";
+        }
+ }
+
+ # Output.
+ # Error
+ # Key1: Value1
+ # Key2: Value2
+
 =head1 DEPENDENCIES
 
 L<English>,
@@ -223,6 +253,6 @@ BSD license.
 
 =head1 VERSION
 
-0.13
+0.14
 
 =cut
