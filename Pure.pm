@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.14;
+our $VERSION = 0.15;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -74,7 +74,7 @@ Error::Pure - Perl module for structured errors.
 
 =over 8
 
-=item B<err(@messages)>
+=item C<err(@messages)>
 
  Process error with messages @messages.
 
@@ -84,12 +84,12 @@ Error::Pure - Perl module for structured errors.
 
 =over 8
 
-=item B<$LEVEL>
+=item C<$LEVEL>
 
  Error level for Error::Pure.
  Default value is 4.
 
-=item B<$TYPE>
+=item C<$TYPE>
 
  Available are last names in Error::Pure::* modules.
  Error::Pure::ErrorList means 'ErrorList'.
@@ -111,6 +111,9 @@ Error::Pure - Perl module for structured errors.
 
  # Modules.
  use Error::Pure qw(err);
+
+ # Set env error type.
+ $ENV{'ERROR_PURE_TYPE'} = 'Die';
 
  # Error.
  err '1';
@@ -253,6 +256,6 @@ BSD license.
 
 =head1 VERSION
 
-0.14
+0.15
 
 =cut

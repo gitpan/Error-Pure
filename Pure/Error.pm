@@ -16,7 +16,7 @@ Readonly::Array our @EXPORT_OK => qw(err);
 Readonly::Scalar my $EVAL => 'eval {...}';
 
 # Version.
-our $VERSION = 0.14;
+our $VERSION = 0.15;
 
 # Ignore die signal.
 $SIG{__DIE__} = 'IGNORE';
@@ -71,7 +71,7 @@ Error::Pure::Error - Error::Pure module with error on one line with informations
 
 =over 8
 
-=item B<err(@messages)>
+=item C<err(@messages)>
 
  Process error with messages @messages.
 
@@ -145,6 +145,6 @@ BSD license.
 
 =head1 VERSION
 
-0.14
+0.15
 
 =cut

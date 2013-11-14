@@ -11,7 +11,7 @@ use List::MoreUtils qw(none);
 use Readonly;
 
 # Version.
-our $VERSION = 0.14;
+our $VERSION = 0.15;
 
 # Constants.
 Readonly::Array our @EXPORT_OK => qw(err);
@@ -41,9 +41,10 @@ sub err {
 		&& none { $_ eq $EVAL || $_ =~ /^eval '/ms }
 		map { $_->{'sub'} } @{$stack_ar}) {
 
-		die (join $EMPTY_STR, @{$errors[-1]->{'msg'}}).
-			"at $stack_ar->[0]->{'prog'} line ".
-			"$stack_ar->[0]->{'line'}.\n";
+		my $die = (join $EMPTY_STR, @{$errors[-1]->{'msg'}}).
+			" at $stack_ar->[0]->{'prog'} line ".
+			"$stack_ar->[0]->{'line'}.";
+		die "$die\n";
 
 	# Die for eval.
 	} else {
@@ -74,7 +75,7 @@ Error::Pure::Die - Error::Pure module with classic die.
 
 =over 8
 
-=item B<err(@messages)>
+=item C<err(@messages)>
 
  Process error with messages @messages.
 
@@ -193,6 +194,6 @@ BSD license.
 
 =head1 VERSION
 
-0.14
+0.15
 
 =cut

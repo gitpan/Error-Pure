@@ -6,7 +6,7 @@ SYNOPSIS
      err 'This is a fatal error', 'name', 'value';
 
 SUBROUTINES
-    err(@messages)
+    "err(@messages)"
              Process error with messages @messages.
 
 VARIABLES
@@ -32,6 +32,9 @@ EXAMPLE1
 
      # Modules.
      use Error::Pure qw(err);
+
+     # Set env error type.
+     $ENV{'ERROR_PURE_TYPE'} = 'Die';
 
      # Error.
      err '1';
@@ -151,5 +154,5 @@ LICENSE AND COPYRIGHT
     BSD license.
 
 VERSION
-    0.14
+    0.15
 

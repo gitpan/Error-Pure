@@ -10,6 +10,7 @@ abstract 'Perl module for structured errors.';
 author 'Michal Špaček <skim@cpan.org>';
 license 'bsd';
 name 'Error-Pure';
+readme_from 'Pure.pm';
 requires 'Cwd' => 0;
 requires 'English' => 0;
 requires 'Exporter' => 0;
@@ -29,7 +30,7 @@ test_requires 'Test::NoWarnings' => 0;
 test_requires 'Test::Pod' => 0;
 test_requires 'Test::Pod::Coverage' => 0;
 tests_recursive;
-version '0.14';
+version '0.15';
 
 # Run.
 WriteAll();
