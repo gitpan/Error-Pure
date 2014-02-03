@@ -10,7 +10,7 @@ use Cwd qw(abs_path);
 use Readonly;
 
 # Version.
-our $VERSION = 0.15;
+our $VERSION = 0.16;
 
 # Constants.
 Readonly::Array our @EXPORT_OK => qw(clean err_get err_helper err_msg err_msg_hr);
@@ -71,15 +71,23 @@ sub err_helper {
 
 # Get first error messages array.
 sub err_msg {
+	my $index = shift;
+	if (! defined $index) {
+		$index = -1;
+	}
 	my @err = err_get();
-	my @ret = @{$err[0]->{'msg'}};
+	my @ret = @{$err[$index]->{'msg'}};
 	return @ret;
 }
 
 # Get first error message key, value pairs as hash reference.
 sub err_msg_hr {
+	my $index = shift;
+	if (! defined $index) {
+		$index = -1;
+	}
 	my @err = err_get();
-	my @ret = @{$err[0]->{'msg'}};
+	my @ret = @{$err[$index]->{'msg'}};
 	shift @ret;
 	return {@ret};
 }
@@ -195,8 +203,8 @@ Error::Pure::Utils - Utilities for structured errors.
  use Error::Pure::Utils qw(clean err_get err_helper err_msg err_msg_hr);
  clean();
  my @errors = err_get($clean);
- my @err_msg = err_msg();
- my $err_msg_hr = err_msg_hr();
+ my @err_msg = err_msg($index);
+ my $err_msg_hr = err_msg_hr($index);
  my @errors = err_helper('This is a fatal error', 'name', 'value');
 
 =head1 SUBROUTINES
@@ -217,18 +225,20 @@ Error::Pure::Utils - Utilities for structured errors.
  It is exportable.
  Returns array of errors.
 
-=item C<err_msg()>
+=item C<err_msg([$index])>
 
- Get first error messages array.
+ Get $index error messages array.
+ If $index isn't present, use -1 as last message.
  Is is usable in situation >>err 'Error', 'item1', 'item2', 'item3', 'item4'<<.
  Then returns ('Error', 'item1', 'item2', 'item3', 'item4') array.
  See EXAMPLE2.
  It is exportable.
  Returns array of error messages.
 
-=item C<err_msg_hr()>
+=item C<err_msg_hr([$index])>
 
- Get first error message key, value pairs as hash reference.
+ Get $index error message key, value pairs as hash reference.
+ If $index isn't present, use -1 as last message.
  Is is usable in situation >>err 'Error', 'key1', 'val1', 'key2', 'val2'<<.
  Then returns {'key1' => 'val1', 'key2' => 'val2'} structure.
  See EXAMPLE3.
@@ -417,6 +427,6 @@ BSD license.
 
 =head1 VERSION
 
-0.15
+0.16
 
 =cut
