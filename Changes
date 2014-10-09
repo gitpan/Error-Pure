@@ -1,9 +1,18 @@
+0.17 2014-10-09T12:41:59+02:00
+ [Common]
+ - Fix LICENSE file.
+ - Update years in LICENSE file.
+ - Update Module::Install to 1.12 version.
+
+ [Error::Pure::Output::Text]
+ - Move to independent distribution.
+
 0.16 2014-02-03
  [Error::Pure::Utils]
- - Rewrite err_msg() to use index value of errors. Default value of index is -1
-   (last error).
- - Rewrite err_msg_hr() to use index value of errors. Default value of index
-   is -1 (last_error).
+ - Rewrite err_msg() to use index value of errors. Default value of index
+   is -1 (last error).
+ - Rewrite err_msg_hr() to use index value of errors. Default value of
+   index is -1 (last_error).
 
 0.15 2013-11-13
  - Add 'readme_from' directive to Makefile.PL.

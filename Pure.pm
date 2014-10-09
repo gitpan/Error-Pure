@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.16;
+our $VERSION = 0.17;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -252,10 +252,10 @@ L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
-BSD license.
+BSD 2-Clause License
 
 =head1 VERSION
 
-0.16
+0.17
 
 =cut
