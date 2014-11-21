@@ -16,7 +16,7 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.17;
+our $VERSION = 0.18;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
@@ -234,7 +234,8 @@ L<Error::Pure::HTTP::Print>,
 L<Error::Pure::JSON>,
 L<Error::Pure::Output::JSON>,
 L<Error::Pure::Output::Text>,
-L<Error::Pure::Print>.
+L<Error::Pure::Print>,
+L<Error::Pure::PrintVar>.
 
 =head1 ACKNOWLEDGMENTS
 
@@ -256,6 +257,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.17
+0.18
 
 =cut

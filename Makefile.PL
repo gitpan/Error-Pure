@@ -14,10 +14,10 @@ readme_from 'Pure.pm';
 requires 'Cwd' => 0;
 requires 'English' => 0;
 requires 'Exporter' => 0;
-requires 'Error::Pure::Output::Text' => 0.17;
+requires 'Error::Pure::Output::Text' => 0.21;
 requires 'List::MoreUtils' => 0;
 requires 'Readonly' => 0;
-requires 'perl' => '5.6.2';
+requires 'perl' => '5.8.0';
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 	'?Name=Error-Pure';
 resources 'homepage' => 'https://github.com/tupinek/Error-Pure';
@@ -31,7 +31,7 @@ test_requires 'Test::NoWarnings' => 0;
 test_requires 'Test::Pod' => 0;
 test_requires 'Test::Pod::Coverage' => 0;
 tests_recursive;
-version '0.17';
+version '0.18';
 
 # Run.
 WriteAll();

@@ -11,7 +11,7 @@ use List::MoreUtils qw(none);
 use Readonly;
 
 # Version.
-our $VERSION = 0.17;
+our $VERSION = 0.18;
 
 # Constants.
 Readonly::Array our @EXPORT_OK => qw(err);
@@ -28,13 +28,6 @@ sub err {
 	# Get errors structure.
 	my @errors = err_helper(@msg);
 
-	# Error messages.
-	my $e = $errors[-1]->{'msg'}->[0];
-	if (! defined $e) {
-		$e = 'undef';
-	}
-	chomp $e;
-
 	# Finalize in main on last err.
 	my $stack_ar = $errors[-1]->{'stack'};
 	if ($stack_ar->[-1]->{'class'} eq 'main'
@@ -48,7 +41,7 @@ sub err {
 
 	# Die for eval.
 	} else {
-		die "$e\n";
+		die "$errors[-1]->{'msg'}->[0]\n";
 	}
 
 	return;
@@ -176,7 +169,8 @@ L<Error::Pure::HTTP::Error>,
 L<Error::Pure::HTTP::ErrorList>,
 L<Error::Pure::HTTP::Print>,
 L<Error::Pure::Output::Text>,
-L<Error::Pure::Print>.
+L<Error::Pure::Print>,
+L<Error::Pure::PrintVar>.
 
 =head1 REPOSITORY
 
@@ -194,6 +188,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.17
+0.18
 
 =cut

@@ -6,6 +6,7 @@ use strict;
 use warnings;
 
 # Modules.
+use Error::Pure::Output::Text qw(err_print);
 use Error::Pure::Utils qw(err_helper);
 use List::MoreUtils qw(none);
 use Readonly;
@@ -16,7 +17,7 @@ Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $EVAL => 'eval {...}';
 
 # Version.
-our $VERSION = 0.17;
+our $VERSION = 0.18;
 
 # Ignore die signal.
 $SIG{__DIE__} = 'IGNORE';
@@ -28,31 +29,17 @@ sub err {
 	# Get errors structure.
 	my @errors = err_helper(@msg);
 
-	# Error message.
-	my $e = $errors[-1]->{'msg'}->[0];
-	if (! defined $e) {
-		$e = 'undef';
-	}
-	chomp $e;
-
 	# Finalize in main on last err.
 	my $stack_ar = $errors[-1]->{'stack'};
 	if ($stack_ar->[-1]->{'class'} eq 'main'
 		&& none { $_ eq $EVAL || $_ =~ /^eval '/ms }
 		map { $_->{'sub'} } @{$stack_ar}) {
 
-		my $class = $errors[-1]->{'stack'}->[0]->{'class'};
-		if ($class eq 'main') {
-			$class = $EMPTY_STR
-		}
-		if ($class) {
-			$class .= ': ';
-		}
-		die $class."$e\n";
+		die err_print(@errors)."\n";
 
 	# Die for eval.
 	} else {
-		die "$e\n";
+		die "$errors[-1]->{'msg'}->[0]\n";
 	}
 
 	return;
@@ -115,8 +102,37 @@ Error::Pure::Print - Error::Pure module for simple error print.
  # Output:
  # 1
 
+=head1 EXAMPLE3
+
+ package Example3;
+ 
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Error::Pure::Print qw(err);
+
+ # Test with error.
+ sub test {
+         err '1', '2', '3';
+ };
+
+ package main;
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Run.
+ Example3::test();
+
+ # Output:
+ # Example3: 1
+
 =head1 DEPENDENCIES
 
+L<Error::Pure::Output::Text>,
 L<Error::Pure::Utils>,
 L<Exporter>,
 L<List::MoreUtils>,
@@ -134,6 +150,7 @@ L<Error::Pure::HTTP::Error>,
 L<Error::Pure::HTTP::ErrorList>,
 L<Error::Pure::HTTP::Print>,
 L<Error::Pure::Output::Text>,
+L<Error::Pure::PrintVar>,
 L<Error::Pure::Utils>.
 
 =head1 REPOSITORY
@@ -152,6 +169,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.17
+0.18
 
 =cut

@@ -10,7 +10,7 @@ use Cwd qw(abs_path);
 use Readonly;
 
 # Version.
-our $VERSION = 0.17;
+our $VERSION = 0.18;
 
 # Constants.
 Readonly::Array our @EXPORT_OK => qw(clean err_get err_helper err_msg err_msg_hr);
@@ -50,11 +50,18 @@ sub err_get {
 sub err_helper {
 	my @msg = @_;
 
-	# Check to undefined values in @msg.
+	# Check to undefined values in @msg and chomp.
 	for (my $i = 0; $i < @msg; $i++) {
 		if (! defined $msg[$i]) {
 			$msg[$i] = $UNDEF;
+		} else {
+			chomp $msg[$i];
 		}
+	}
+
+	# When is list blank, add undef.
+	if (! @msg) {
+		push @msg, $UNDEF;
 	}
 
 	# Get calling stack.
@@ -249,6 +256,9 @@ Error::Pure::Utils - Utilities for structured errors.
 
  Subroutine for additional module above Error::Pure.
  @msg is array of messages.
+ If last error is undef, rewrite it to 'undef' string.
+ If @msg is blank, add 'undef' string.
+ Chomp last error.
  It is exportable.
  Returns array of errors.
 
@@ -409,7 +419,8 @@ L<Error::Pure::HTTP::Error>,
 L<Error::Pure::HTTP::ErrorList>,
 L<Error::Pure::HTTP::Print>,
 L<Error::Pure::Output::Text>,
-L<Error::Pure::Print>.
+L<Error::Pure::Print>,
+L<Error::Pure::PrintVar>.
 
 =head1 REPOSITORY
 
@@ -427,6 +438,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.17
+0.18
 
 =cut

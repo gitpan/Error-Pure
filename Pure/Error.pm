@@ -16,7 +16,7 @@ Readonly::Array our @EXPORT_OK => qw(err);
 Readonly::Scalar my $EVAL => 'eval {...}';
 
 # Version.
-our $VERSION = 0.17;
+our $VERSION = 0.18;
 
 # Ignore die signal.
 $SIG{__DIE__} = 'IGNORE';
@@ -38,13 +38,7 @@ sub err {
 
 	# Die for eval.
 	} else {
-		my $e = $errors[-1]->{'msg'}->[0];
-		if (! defined $e) {
-			$e = 'undef';
-		} else {
-			chomp $e;
-		}
-		die "$e\n";
+		die "$errors[-1]->{'msg'}->[0]\n";
 	}
 
 	return;
@@ -127,6 +121,7 @@ L<Error::Pure::HTTP::ErrorList>,
 L<Error::Pure::HTTP::Print>,
 L<Error::Pure::Output::Text>,
 L<Error::Pure::Print>,
+L<Error::Pure::PrintVar>,
 L<Error::Pure::Utils>.
 
 =head1 REPOSITORY
@@ -145,6 +140,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.17
+0.18
 
 =cut

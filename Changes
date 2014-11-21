@@ -1,3 +1,32 @@
+0.18 2014-11-21T08:09:02+01:00
+ [Common]
+ - Fix minimal version of Perl.
+ - Update Module::Install to 1.14 version.
+
+ [Error::Pure::AllError]
+ - Clean code across new err_helper().
+
+ [Error::Pure::Die]
+ - Clean code across new err_helper().
+
+ [Error::Pure::Error]
+ - Clean code across new err_helper().
+
+ [Error::Pure::ErrorList]
+ - Clean code across new err_helper().
+
+ [Error::Pure::Print]
+ - Add EXAMPLE3 section to doc.
+ - Clean code across new err_helper().
+ - Code optimalization.
+ - Rewrite to use Error::Pure::Output::Text::err_print() subroutine.
+
+ [Error::Pure::PrintVar]
+ - First version.
+
+ [Error::Pure::Utils]
+ - Improve processing of messages in err_helper(). Improve doc.
+
 0.17 2014-10-09T12:41:59+02:00
  [Common]
  - Fix LICENSE file.

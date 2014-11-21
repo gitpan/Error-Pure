@@ -5,43 +5,24 @@ use strict;
 use warnings;
 
 # Modules.
-use Dumpvalue;
-use Error::Pure::Die qw(err);
-use Error::Pure::Utils qw(err_get);
+use English qw(-no_match_vars);
+use Error::Pure qw(err);
+use Error::Pure::Utils qw(err_msg);
 
 # Error in eval.
-eval { err '1', '2', '3'; };
+eval {
+        err 'Error', 'item1', 'item2', 'item3', 'item4';
+};
+if ($EVAL_ERROR) {
+        my @err_msg = err_msg();
+        foreach my $item (@err_msg) {
+                print "$item\n";
+        }
+}
 
-# Error structure.
-my @err = err_get();
-
-# Dump.
-my $dump = Dumpvalue->new;
-$dump->dumpValues(\@err);
-
-# In \@err:
-# [
-#         {
-#                 'msg' => [
-#                         '1',
-#                         '2',
-#                         '3',
-#                 ],
-#                 'stack' => [
-#                         {
-#                                 'args' => '(1)',
-#                                 'class' => 'main',
-#                                 'line' => '9',
-#                                 'prog' => 'script.pl',
-#                                 'sub' => 'err',
-#                         },
-#                         {
-#                                 'args' => '',
-#                                 'class' => 'main',
-#                                 'line' => '9',
-#                                 'prog' => 'script.pl',
-#                                 'sub' => 'eval {...}',
-#                         },
-#                 ],
-#         },
-# ],
+# Output:
+# Error
+# item1
+# item2
+# item3
+# item4
