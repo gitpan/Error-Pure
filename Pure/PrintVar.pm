@@ -17,10 +17,7 @@ Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $EVAL => 'eval {...}';
 
 # Version.
-our $VERSION = 0.21;
-
-# Ignore die signal.
-$SIG{__DIE__} = 'IGNORE';
+our $VERSION = 0.22;
 
 # Process error.
 sub err {
@@ -167,11 +164,11 @@ L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
- © Michal Špaček 2008-2014
+ © 2008-2014 Michal Špaček
  BSD 2-Clause License
 
 =head1 VERSION
 
-0.21
+0.22
 
 =cut

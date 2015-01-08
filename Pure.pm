@@ -16,16 +16,13 @@ Readonly::Scalar my $TYPE_DEFAULT => 'Die';
 Readonly::Scalar my $LEVEL_DEFAULT => 4;
 
 # Version.
-our $VERSION = 0.21;
+our $VERSION = 0.22;
 
 # Type of error.
 our $TYPE = $TYPE_DEFAULT;
 
 # Level for this class.
 our $LEVEL = $LEVEL_DEFAULT;
-
-# Ignore die signal.
-$SIG{__DIE__} = 'IGNORE';
 
 # Process error.
 sub err {
@@ -253,11 +250,11 @@ L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
- © Michal Špaček 2008-2014
+ © 2008-2015 Michal Špaček
  BSD 2-Clause License
 
 =head1 VERSION
 
-0.21
+0.22
 
 =cut
